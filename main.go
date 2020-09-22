@@ -12,7 +12,10 @@ import (
 
 func main() {
 	ap := &controllers.ApplicationController{}
-	controllers.NewController("/api", ap)
+	err := controllers.NewController("/api", ap)
+	if err != nil {
+		panic(err)
+	}
 
 	mux := controllers.GetMux()
 
